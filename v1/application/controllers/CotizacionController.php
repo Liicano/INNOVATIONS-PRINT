@@ -5959,6 +5959,7 @@
 			
 						$stmt->execute();
 						$rows3 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+						
 						$nfilas3 = $stmt->rowCount();
 						$stmt->closeCursor();
 					}
@@ -6404,8 +6405,8 @@
 		$mensaje[43] = $repujado;
 		$mensaje[44] = $engrapado;
 		$mensaje[45] = $uv;
-		if ( isset($Otro_Ancho) ) {$mensaje[46] = $Otro_Ancho;}
-		if ( isset($Otro_Largo) ) {$mensaje[47] = $Otro_Largo;}
+		$mensaje[46] = $Otro_Ancho;
+		$mensaje[47] = $Otro_Largo;
 		
 			
 	

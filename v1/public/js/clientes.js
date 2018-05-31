@@ -243,6 +243,7 @@ function Listar_Clientes()
 			"createdRow":function( nRow, aData, iDataIndex ) {
 					$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 					$(nRow).attr('class', "gradeA");
+					
 				},
 			"columnDefs": [
 				  { "className": "text-center", "targets": [ 0,10 ] },

@@ -1122,7 +1122,7 @@
 		$db->beginTransaction();
 		try
 		{	
-			print_r($_POST);
+			
 
 			$IdTipoProducto = (isset($_POST['IdTipoProducto'])) ? strip_tags(utf8_decode(base64_decode($_POST['IdTipoProducto']))) : '';
 			$Nombre_Producto = (isset($_POST['NombreProducto'])) ? strip_tags(utf8_decode($_POST['NombreProducto'])) : '';
@@ -1178,7 +1178,7 @@
 					$CodigoProducto = $CodGrupoProducto.$IdProveedor.$IdTipo;
 				}		
 
-				// ESTO NO SE ESTA GUARDANDO !!
+			
 				if ($IdMarca == ""){ 
 					$stmt = $db->prepare("INSERT INTO marcas (descripcion_marca,fecha_agregado)
 					VALUES (?,'".date('Y-m-d H:i:s')."')");	
@@ -1200,7 +1200,7 @@
 					$CodigoProducto = $CodGrupoProducto.$IdProveedor.$IdTipo.$IdMarca;
 				}
 				
-				// ESTO TAMPOCO SE ESTA GUARDANDO
+				
 				if ($IdModelo == ""){
 					$stmt = $db->prepare("INSERT INTO modelos (descripcion_modelo,fecha_agregado)
 					VALUES (?,'".date('Y-m-d H:i:s')."')");	
@@ -1238,7 +1238,7 @@
 					$CodigoProducto = $CodGrupoProducto.$IdProveedor.$IdTipo.$IdMarca.$IdModelo.$IdTamano;	
 				}			
 				
-				// esto no se esta guardando
+				
 				if ($IdColor == ""){			
 					$stmt = $db->prepare("INSERT INTO colores (descripcion_color,fecha_agregado)
 					VALUES (?,'".date('Y-m-d H:i:s')."')");	
@@ -1257,8 +1257,8 @@
 					$CodigoProducto = $CodGrupoProducto.$IdProveedor.$IdTipo.$IdMarca.$IdModelo.$IdTamano.$IdColor;
 				}	
 
-				print_r($CodigoProducto);
-				// ESTO TAMPOCO SE ESTA AGREGANDO
+				
+				
 				$query = mysqli_query ($mysqli, "INSERT INTO producto 
 				(id_tipo_producto, nombre_producto, descripcion_producto, codigo_producto, codigo_barra, id_tipo, id_marca, id_modelo,
 				id_color, id_tamano, id_categoria, id_proveedor, id_ubicacion, costo, precio_venta, id_tipo_empaque, cantidad_existencia,

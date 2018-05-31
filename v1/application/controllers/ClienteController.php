@@ -301,7 +301,7 @@ if($_GET['action'] == 'Ver_Logotipo')
 {
 
 	$id_cliente = $_POST['id_cliente'];
-	$resp = []; 
+	$resp = array();
 
 
 	$stmt = $db->prepare("SELECT SQL_CALC_FOUND_ROWS id_cliente,nombre_empresa,logo_empresa,ruc_parte_1,ruc_parte_2,ruc_parte_3,ruc,dv,telefono,celular,email,direccion,credito
@@ -446,7 +446,7 @@ if($_GET['action'] == 'Ver_Logotipo')
 						$stmt = $db->prepare("SELECT CONCAT(nombre,' ',apellido) AS Creado_Por, usuario, u.id_usuario FROM historial_cliente_persona hcp
 						INNER JOIN user_log ul ON (hcp.id_log = ul.id_log)
 						INNER JOIN usuarios u ON (u.id_usuario = ul.id_usuario)
-						WHERE  tipo = 1");	
+						WHERE  tipo = 1 AND hcp.id_cliente_persona = ?");	
 						
 						$d = 1;
 						$stmt->bindParam($d,$Id_Cliente,PDO::PARAM_INT);						
@@ -461,7 +461,7 @@ if($_GET['action'] == 'Ver_Logotipo')
 						$stmt = $db->prepare("SELECT CONCAT(nombre,' ',apellido) AS Actualizado_Por, usuario, u.id_usuario FROM historial_cliente_persona hcp
 						INNER JOIN user_log ul ON (hcp.id_log = ul.id_log)
 						INNER JOIN usuarios u ON (u.id_usuario = ul.id_usuario)
-						WHERE tipo = 5
+						WHERE tipo = 5 AND hcp.id_cliente_persona = ?
 						ORDER BY fecha_log DESC LIMIT 0,1");
 						
 						$d = 1;
@@ -472,7 +472,9 @@ if($_GET['action'] == 'Ver_Logotipo')
 						//$nfilas = $stmt->rowCount();
 						$stmt->closeCursor();
 
-						$Actualizado_Por =$rows2[0]['usuario'];						
+						$Actualizado_Por =$rows2[0]['usuario'];	
+
+
 					}
 					catch(PDOException $e) {
 						echo $e->getMessage();
@@ -512,10 +514,10 @@ if($_GET['action'] == 'Ver_Logotipo')
 								
 					try
 					{
-						$stmt = $db->prepare("SELECT CONCAT(nombre,' ',apellido) AS Creado_Por, usuario, u.id_usuario FROM historial_cliente_empresa hce
+						$stmt = $db->prepare("SELECT CONCAT(u.nombre,' ',u.apellido) AS Creado_Por, u.usuario, u.id_usuario FROM historial_cliente_empresa hce
 						INNER JOIN user_log ul ON (hce.id_log = ul.id_log)
 						INNER JOIN usuarios u ON (u.id_usuario = ul.id_usuario)
-						WHERE tipo = 2");
+						WHERE ul.tipo = 2 AND hce.id_cliente_empresa = ?");
 						
 						$d = 1;
 						$stmt->bindParam($d,$Id_Cliente,PDO::PARAM_INT);						
@@ -527,11 +529,10 @@ if($_GET['action'] == 'Ver_Logotipo')
 						
 						$Creado_Por =$rows1[0]['usuario'];
 						
-						$stmt = $db->prepare("SELECT CONCAT(nombre,' ',apellido) AS Creado_Por, usuario, u.id_usuario FROM historial_cliente_empresa hce
+						$stmt = $db->prepare("SELECT CONCAT(u.nombre,' ',u.apellido) AS Creado_Por, u.usuario, u.id_usuario FROM historial_cliente_empresa hce
 						INNER JOIN user_log ul ON (hce.id_log = ul.id_log)
 						INNER JOIN usuarios u ON (u.id_usuario = ul.id_usuario)
-						WHERE tipo = 6
-						ORDER BY fecha_log DESC LIMIT 0,1");
+						WHERE ul.tipo = 6 AND hce.id_cliente_empresa = ?");
 						
 						$d = 1;
 						$stmt->bindParam($d,$Id_Cliente,PDO::PARAM_INT);						
@@ -611,11 +612,12 @@ if($_GET['action'] == 'Ver_Logotipo')
 
 		}
 
-		$ResultSet['draw'] = $Draw;
-		$ResultSet['data'] = $Data;
-		$ResultSet['recordsFiltered'] = $resFilterLength;
-		$ResultSet['recordsTotal'] = $recordsTotal;		
-		echo json_encode($ResultSet);		
+		
+		 $ResultSet['draw'] = $Draw;
+		 $ResultSet['data'] = $Data;
+		 $ResultSet['recordsFiltered'] = $resFilterLength;
+		 $ResultSet['recordsTotal'] = $recordsTotal;		
+		 echo json_encode($ResultSet);		
 	
 	}
 

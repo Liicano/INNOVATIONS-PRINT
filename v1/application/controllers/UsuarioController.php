@@ -404,13 +404,17 @@
 
 			if ($EstatusUsuario == 2)
 			{
-				$stmt = $db->prepare("UPDATE usuarios SET nombre=?,apellido=?,posicion=?,usuario=?,clave=?,id_tipo_usuario=?,id_estatus=?,ultima_actualizacion=NOW(),fecha_inactivado=NOW() 
+				$stmt = $db->prepare("UPDATE usuarios SET nombre=?,apellido=?,posicion=?,usuario=?,clave=?,id_tipo_usuario=?,id_estatus=?,fecha_inactivado=NOW() 
 				WHERE MD5(id_usuario)=?");			
 			}
 			else
 			{
-				$stmt = $db->prepare("UPDATE usuarios SET nombre=?,apellido=?,posicion=?,usuario=?,clave=?,id_tipo_usuario=?,id_estatus=?,fecha_actualizado=NOW()
-				WHERE MD5(id_usuario)=?");
+
+				$stmt = $db->prepare("UPDATE usuarios SET nombre=?,apellido=?,posicion=?,usuario=?,clave=?,id_tipo_usuario=?,id_estatus=?,fecha_inactivado=NOW() 
+				WHERE MD5(id_usuario)=?");	
+
+				// $stmt = $db->prepare("UPDATE usuarios SET nombre=?,apellido=?,posicion=?,usuario=?,clave=?,id_tipo_usuario=?,id_estatus=?,fecha_actualizado=NOW()
+				// WHERE MD5(id_usuario)=?");
 			}
 			
 			$c = 1;
@@ -451,7 +455,8 @@
 			$stmt->bindParam($c,$Tipo,PDO::PARAM_INT);
 	
 			$Insertado1 = $stmt->execute();
-				
+		
+
 			$stmt = $db->query("SELECT LAST_INSERT_ID() AS Id_Log");
 			$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			$Id_Log = $results[0]["Id_Log"];
@@ -463,7 +468,7 @@
 			$stmt->bindParam($c,$Id_Log,PDO::PARAM_INT);
 				
 			$Insertado2 = $stmt->execute();			
-				
+
 			$stmt->closeCursor();
 			
 		}
@@ -472,7 +477,7 @@
 		}
 		
 
-		//echo "$Actualizado-$Insertado1-$Insertado2";		
+		// echo "$Actualizado-$Insertado1-$Insertado2";		
 		if (($Actualizado === true) && ($Insertado1 === true) && ($Insertado2 === true))
 		{
 			echo "true";

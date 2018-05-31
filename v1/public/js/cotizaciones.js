@@ -4537,13 +4537,11 @@ function Agregar_Cotizacion()
 	$('#main_content').css("opacity",0.5);	
 	
 
-	// tomando la cotizacion_base
-	var id_coti_text = $('#lstCotizacion').text(); 
-	var coti = id_coti_text.split(' ');
-	var Cotizacion_Base = (coti[4] == undefined)? null : coti[4];
-	console.log(Cotizacion_Base);
-	// ====================
-
+	 var id_coti_text = ($('#lstCotizacion option:selected').html() == null)?'':$('#lstCotizacion option:selected').html(); 
+	 console.log(id_coti_text);
+	 var coti = id_coti_text.split(' ');
+	 var Cotizacion_Base = (coti[2] == null) ? null : coti[2];
+	 console.log(Cotizacion_Base);
 
 	var c = 1;
 	var msj = "";
@@ -7483,7 +7481,7 @@ function Listar_Cotizacion_Auto()
 function Imprimir_Detalle_Venta(id_cotizacion)
 {
 
-//alert(id_cotizacion);
+
 	$.post("application/controllers/CotizacionController.php?action=Imprimir_Detalle_Venta",
 	{	
 		id:id_cotizacion
