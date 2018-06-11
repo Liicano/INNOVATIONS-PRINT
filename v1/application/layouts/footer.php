@@ -15,6 +15,7 @@
 <script type="text/javascript" src="public/js/plugins/forms/chosen.jquery.min.js"></script>
 <script type="text/javascript" src="public/js/plugins/ui/jquery.collapsible.min.js"></script>
 <script type="text/javascript" src="public/js/plugins/ui/jquery.breadcrumbs.js"></script>
+
 <?php
 	$html = '';
 	
@@ -120,7 +121,25 @@
 		{
 			$html .=  '<script type="text/javascript" src="public/js/plugins/tables/jquery.dataTables.js"></script>
 						<script type="text/javascript" src="public/js/plugins/tables/TableTools/dataTables.tableTools.min.js"></script>
-			';			
+
+						<script type="text/javascript" src="public/js/plugins/tables/Buttons/dataTablesButtons.js"></script>
+
+						<script type="text/javascript" src="public/js/plugins/tables/Buttons/ButtonsFlash.js"></script>
+
+						<script type="text/javascript" src="public/js/plugins/tables/Buttons/jsZip.js"></script>
+
+						<script type="text/javascript" src="public/js/plugins/tables/Buttons/pdfMake.js"></script>
+
+						<script type="text/javascript" src="public/js/plugins/tables/Buttons/vfs_fonts.js"></script>
+
+						<script type="text/javascript" src="public/js/plugins/tables/Buttons/ButtonsHtml5.js"></script>
+
+						<script type="text/javascript" src="public/js/plugins/tables/Buttons/ButtonsPrint.js"></script>
+
+						<script type="text/javascript" src="public/js/plugins/tables/Buttons/ButtonColvis.js"></script>
+
+			';
+ 		
 		}
 		
 		if (is_numeric(stripos(trim(base64_decode($_GET['sec'])),"cliente")))

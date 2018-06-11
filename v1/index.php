@@ -71,6 +71,9 @@
 <!-- SexyAlertBox -->
 <script type="text/javascript" charset="ISO-8859-1"  src="public/js/jquery.easing.1.3.js"></script>
 <script type="text/javascript" charset="ISO-8859-1"  src="public/js/sexyalertbox.v1.2.jquery.js"></script>		
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="//cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
 <script type="text/javascript" src="public/js/funciones.js"></script>
 <script charset="ISO-8859-1">
 $(document).ready(function(){	

@@ -304,7 +304,7 @@
                     <li><a onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='default'" onclick="location.href = 'admin.php?sec=<?php echo base64_encode("agregar_cotizacion")?>';" title="Cotizaci&oacute;n"><img src="public/images/icons/control/32/plus.png" alt="" /><span>Cotizaci&oacute;n</span></a></li>
                     <!-- <li><a href="#" title=""><img src="images/icons/control/32/database.png" alt="" /><span>New DB entry</span></a></li>
                     <li><a href="#" title=""><img src="images/icons/control/32/statistics.png" alt="" /><span>Check statistics</span></a></li>-->
-                    <li><a onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='default'" onclick="location.href = 'admin.php?sec=<?php echo base64_encode("agregar_orden_trabajo")?>';" title="Orden de Trabajo"><img src="public/images/icons/control/32/shipping.png" alt="" /><span>Orden de Trabajo</span></a></li>
+                    <li><a onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='default'" onclick="location.href = 'admin.php?sec=<?php echo base64_encode("listar_ordenes_trabajos")?>';" title="Orden de Trabajo"><img src="public/images/icons/control/32/shipping.png" alt="" /><span>Listar Ordenes de trabajo</span></a></li>
 					<?php if ((base64_decode($_SESSION['id_tipo_usuario']) == 1) or (base64_decode($_SESSION['id_tipo_usuario']) == 2))
 					{  ?>	
 					<li id="detalle" ><a onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='default'" onclick="location.href = 'admin.php?sec=<?php echo base64_encode("listar_detalles_ventas")?>';" title="Detalle de Venta"><img src="public/images/icons/control/32/invoice.png" alt="" /><span>Detalle de Venta</span></a></li>

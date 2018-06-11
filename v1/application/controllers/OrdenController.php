@@ -1275,7 +1275,7 @@
 								$stmt = $db->prepare("UPDATE movimientos SET id_producto,id_bodega,balance_bodega,fecha_actualizado='".date('Y-m-d H:i:s')."'
 								WHERE MD5(id_orden) = ? AND MD5(tipo_orden) = ?  AND MD5(tipo_orden_entrada) = ? AND MD5(id_orden_detalle)=?");						
 								
-								$CantBodegaProcedencia = $Cantidad[$f]*-1;
+								$CantBodegaProcedencia = $Cantidad[$f];
 								
 								$p = 1;
 
@@ -1300,7 +1300,7 @@
 							$stmt = $db->prepare("UPDATE movimientos SET id_producto=?,id_bodega=?,balance_bodega=?,id_tienda=?,balance_tienda=?,fecha_actualizado='".date('Y-m-d H:i:s')."'
 							WHERE MD5(id_orden) = ? AND MD5(tipo_orden) = ?  AND MD5(id_orden_detalle)=?");				
 							
-							$CantBodegaProcedencia = $Cantidad[$f]*-1;
+							$CantBodegaProcedencia = $Cantidad[$f];
 							
 							$p = 1;
 							$stmt->bindParam($p,$Producto[$f],PDO::PARAM_STR,255);
@@ -1683,9 +1683,6 @@
 			//array( 'db' => 'codigo_producto',   'dt' => 4 ),
 			array( 'db' => 'nombre_producto',   'dt' => 4 ),
 			array( 'db' => 'total_bodega',   'dt' => 5 ),			
-			array( 'db' => 'total_bodega',   'dt' => 6 ),
-			array( 'db' => 'total_tienda',   'dt' => 7 ),	
-			array( 'db' => 'total_inventario',   'dt' => 8 ),
 			array( 'db' => 'nombre_proveedor',   'dt' => 9 ),			
 		);
 		

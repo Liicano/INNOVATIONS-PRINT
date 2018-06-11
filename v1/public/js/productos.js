@@ -860,7 +860,32 @@ function Listar_Productos()
 			"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 			"pageLength": 10,
 			//"paging": true,
-			"dom": 'T<"clear">lfrtip',
+			"dom": 'Bfrtip',
+			"buttons": [
+             {
+                extend: 'excelHtml5',
+                title:'LISTA DE PRODUCTOS',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+            	extend: 'pdfHtml5',
+                messageTop: 'LISTA DE PRODUCTOS',
+                title:'LISTA DE PRODUCTOS EN INVENTARIO',
+                 exportOptions: {
+                    columns: ':visible'
+                }
+            },
+             {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                 title:'LISTA DE PRODUCTOS'
+            },
+            'colvis',  'pageLength'
+        ],
 			"createdRow":function( nRow, aData, iDataIndex ) {
 					$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 					$(nRow).attr('class', "gradeA");
@@ -880,7 +905,6 @@ function Listar_Productos()
 				{ "data": 6 },
 				{ "data": 7 },		
 			],
-			"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
 			"destroy": true,
 			"language": {
 				"paginate": {
@@ -1163,7 +1187,36 @@ function Listar_Inventario_Productos()
 		"pagingType":"full_numbers",
 		"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 		"pageLength": 10,
-		"dom": 'T<"clear">lfrtip',
+		"dom": 'Bfrtip',
+        "buttons": [
+             {
+                extend: 'excelHtml5',
+                title:'LISTA DE PRODUCTOS EN INVENTARIO',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+            	extend: 'pdfHtml5',
+                messageTop: 'LISTA DE ORDENES',
+                title:'LISTA DE PRODUCTOS EN INVENTARIO',
+                 exportOptions: {
+                    columns: ':visible'
+                }
+            },
+             {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                 title:'LISTA DE PRODUCTOS EN INVENTARIO'
+            },
+            'colvis', 'pageLength'
+        ],
+         columnDefs: [ {
+            targets: -1,
+            visible: false
+        } ],
 		"createdRow":function( nRow, aData, iDataIndex ) {
 				$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 			},
@@ -1182,7 +1235,6 @@ function Listar_Inventario_Productos()
 			{ "data": 7 },
 			{ "data": 8 },
 		],
-		"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
 		"destroy": true,
 		"language": {
 			"paginate": {
@@ -1228,7 +1280,36 @@ function Listar_Precios_Productos()
 		"pagingType":"full_numbers",
 		"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 		"pageLength": 10,
-		"dom": 'T<"clear">lfrtip',
+		 "dom": 'Bfrtip',
+        "buttons": [
+             {
+                extend: 'excelHtml5',
+                title:'LISTA DE PRECIOS DE PRODUCTOS',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+            	extend: 'pdfHtml5',
+                messageTop: 'LISTA DE ORDENES',
+                title:'LISTA DE PRECIOS DE PRODUCTOS',
+                 exportOptions: {
+                    columns: ':visible'
+                }
+            },
+             {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                 title:'LISTA DE PRECIOS DE PRODUCTOS'
+            },
+            'colvis', 'pageLength'
+        ],
+         columnDefs: [ {
+            targets: -1,
+            visible: false
+        } ],
 		"createdRow":function( nRow, aData, iDataIndex ) {
 				$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 			},
@@ -1244,7 +1325,6 @@ function Listar_Precios_Productos()
 			{ "data": 4 },
 			{ "data": 5 },
 		],
-		"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
 		"destroy": true,
 		"language": {
 			"paginate": {
@@ -1328,7 +1408,32 @@ function Listar_Categorias_Productos()
 			"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 			"pageLength": 10,
 			//"paging": true,
-			"dom": 'T<"clear">lfrtip',
+			"dom": 'Bfrtip',
+        	"buttons": [
+             {
+                extend: 'excelHtml5',
+                title:'LISTA DE CATEGORIAS',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+            	extend: 'pdfHtml5',
+                messageTop: 'LISTA DE CATEGORIAS',
+                title:'LISTA DE CATEGORIAS',
+                 exportOptions: {
+                    columns: ':visible'
+                }
+            },
+             {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                 title:'LISTA DE CATEGORIAS'
+            },
+            'colvis',  'pageLength'
+        ],
 			"createdRow":function( nRow, aData, iDataIndex ) {
 					$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 					$(nRow).attr('class', "gradeA");
@@ -1344,7 +1449,6 @@ function Listar_Categorias_Productos()
 				{ "data": 2 },
 				{ "data": 3 },			
 			],
-			"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
 			"destroy": true,
 			"language": {
 				"paginate": {

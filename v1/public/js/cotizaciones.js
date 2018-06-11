@@ -6579,7 +6579,32 @@ function Listar_Cotizaciones()
 				"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 				"pageLength": 10,
 				//"paging": true,
-				"dom": 'T<"clear">lfrtip',
+				"dom": 'Bfrtip',
+			"buttons": [
+             {
+                extend: 'excelHtml5',
+                title:'LISTA DE PRODUCTOS',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+            	extend: 'pdfHtml5',
+                messageTop: 'LISTA DE PRODUCTOS',
+                title:'LISTA DE PRODUCTOS EN INVENTARIO',
+                 exportOptions: {
+                    columns: ':visible'
+                }
+            },
+             {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                 title:'LISTA DE PRODUCTOS'
+            },
+            'colvis',  'pageLength'
+        ],
 				"createdRow":function( nRow, aData, iDataIndex ) {
 						$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 						$(nRow).attr('class', "gradeA");
@@ -6601,7 +6626,7 @@ function Listar_Cotizaciones()
 					{ "data": 7 },
 					{ "data": 8 },		
 				],
-				"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
+				
 				"destroy": true,
 				"language": {
 					"paginate": {

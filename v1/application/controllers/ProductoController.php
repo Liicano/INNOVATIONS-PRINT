@@ -2225,11 +2225,11 @@
 		{
 			if((isset($_POST["NombreProducto"])) and ($_POST["NombreProducto"] != ""))
 			{
-				$stmt = $db->prepare("SELECT id_producto,nombre_producto,codigo_producto,imagen_producto FROM producto WHERE nombre_producto LIKE '".$criterio."' AND id_tipo_producto = 2");
+				$stmt = $db->prepare("SELECT id_producto,nombre_producto,codigo_producto FROM producto WHERE nombre_producto LIKE '".$criterio."' AND id_tipo_producto = 2");
 			}
 			else
 			{
-				$stmt = $db->prepare("SELECT id_producto,nombre_producto,codigo_producto,imagen_producto FROM producto WHERE nombre_producto LIKE '%".$criterio."%' AND id_tipo_producto = 2");								
+				$stmt = $db->prepare("SELECT id_producto,nombre_producto,codigo_producto FROM producto WHERE nombre_producto LIKE '%".$criterio."%' AND id_tipo_producto = 2");								
 			}
 			
 			

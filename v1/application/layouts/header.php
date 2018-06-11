@@ -18,6 +18,11 @@
 	<!-- SexyAlertBox -->	
 	<link rel="stylesheet" type="text/css" href="public/css/sexyalertbox.css" />
 	
+	<!-- ============================== -->
+	<link rel="stylesheet" type="text/css" href="public/css/TableTools/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="public/css/TableTools/buttons.dataTable.css">
+
+	<!-- =============================== -->
 	<link rel="stylesheet" type="text/css" href="public/css/TableTools/dataTables.tableTools.min.css" />
 	
     <!-- Custom Fonts -->

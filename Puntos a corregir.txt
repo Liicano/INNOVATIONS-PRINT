@@ -1,0 +1,17 @@
+4.-INVENTARIO / INVENTARIO DE PRODUCTOS. No funciona, solucionarlo, tal cual como esta y ver si no es necesario hacerle cambios y usarlo asi.
+
+5.-RESOLVER como funciona el modulo MOVIMIENTO/ AGREGAR ORDEN, listar ordenes y el movimiento de productos.	
+
+
+
+
+Como funciona el ciclo de ventas?
+1*-Se agrega un producto.
+2*-Se hace la orden de cuantas unidades de ese producto se desea ingresar en inventario.
+3*-Se hace la venta rapida.
+4*-Se observa en Mov. de productos cuantas unidades se vendieron y el nombre del comprador.
+5*-Se observa en Inventario las unidades que quedan.
+
+
+
+*PREGUNTAR CUALES SON LOS TIPOS DE ORDENES Y LOS TIPOS DE ORDEN DE ENTRADA*

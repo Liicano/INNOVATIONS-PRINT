@@ -1252,7 +1252,10 @@ function Listar_Ordenes()
 		"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 		"pageLength": 10,
 		//"paging": true,
-		"dom": 'T<"clear">lfrtip',
+		"dom": 'Bfrtip',
+        "buttons": [
+            'excel', 'pdf'
+        ],
 		"createdRow":function( nRow, aData, iDataIndex ) {
 				$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 			},
@@ -1270,7 +1273,6 @@ function Listar_Ordenes()
 			{ "data": 5 },
 			{ "data": 6 },		
 		],
-		"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
 		"destroy": true,
 		"language": {
 			"paginate": {
@@ -1500,13 +1502,50 @@ function Listar_Movimiento_Productos()
 		"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 		"pageLength": 10,
 		//"paging": true,
-		"dom": 'T<"clear">lfrtip',
+		"dom": 'Bfrtip',
+			"buttons": [
+             {
+                extend: 'excelHtml5',
+                title:'MOVIMIENTOS DE PRODUCTOS',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+            	extend: 'pdfHtml5',
+                messageTop: 'LISTA DE PRODUCTOS',
+                title:'MOVIMIENTOS DE PRODUCTOS',
+                 exportOptions: {
+                    columns: ':visible'
+                }
+            },
+             {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                 title:'MOVIMIENTOS DE PRODUCTOS'
+            },
+            'colvis',  'pageLength'
+        ],
 		"createdRow":function( nRow, aData, iDataIndex ) {
 				$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 			},
 		"columnDefs": [
 			  { "className": "text-center", "targets": [ 0,1,2,3,4,5,6,7,8,9 ] },
 			  { "searchable": false, "targets": [ 0 ] },
+			  {"targets": [ 6 ],
+                "visible": false,
+                "searchable": false
+            },
+            {"targets": [ 7 ],
+                "visible": false,
+                "searchable": false
+            },
+            {"targets": [ 8 ],
+                "visible": false,
+                "searchable": false
+            },
 			],
 		"columns": [
 			{ "data": 0 },
@@ -1944,7 +1983,36 @@ function Listar_Ordenes_Trabajos()
 		"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 		"pageLength": 10,
 		//"paging": true,
-		"dom": 'T<"clear">lfrtip',
+		"dom": 'Bfrtip',
+        "buttons": [
+             {
+                extend: 'excelHtml5',
+                title:'LISTA DE ORDENES DE TRABAJO',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+            	extend: 'pdfHtml5',
+                messageTop: 'LISTA DE ORDENES',
+                title:'LISTA DE ORDENES DE TRABAJO',
+                 exportOptions: {
+                    columns: ':visible'
+                }
+            },
+             {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                 title:'LISTA DE ORDENES DE TRABAJO'
+            },
+            'colvis', 'pageLength'
+        ],
+         columnDefs: [ {
+            targets: -1,
+            visible: false
+        } ],
 		"createdRow":function( nRow, aData, iDataIndex ) {
 				$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 				$(nRow).attr('class', "gradeA");
@@ -1967,7 +2035,7 @@ function Listar_Ordenes_Trabajos()
 			{ "data": 8 },
 			{ "data": 9 },
 		],
-		"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
+		
 		"destroy": true,
 		"language": {
 			"paginate": {
