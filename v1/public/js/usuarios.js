@@ -274,7 +274,6 @@ function Listar_Usuarios()
 		"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 		"pageLength": 10,
 		//"paging": true,
-		"dom": 'T<"clear">lfrtip',
 		"createdRow":function( nRow, aData, iDataIndex ) {
 				$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 				$(nRow).attr('class', "gradeA");
@@ -297,7 +296,6 @@ function Listar_Usuarios()
 			{ "data": 8 },
 
 		],
-		"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
 		"destroy": true,
 		"language": {
 			"paginate": {

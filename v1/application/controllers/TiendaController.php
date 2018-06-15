@@ -264,7 +264,7 @@
 				
 				$Data[$f][$c] .= '<input type="hidden" id="hdnIdCampos_'.$f.'" name="hdnIdCampos[]" value="'.utf8_encode(md5($row['id_tienda'])).'" />';
 				
-				$c = $c + 1;
+				$f = $f + 1;
 			}
 
 		}

@@ -7089,17 +7089,20 @@
 				
 				$objGenerarCotizacion->Generar_Cotizacion_Imprenta($desde, $hasta, $mensaje);
 				
+
 				$objCorreo->prepararNotificacion($mensaje, 1);
 				$P_Asunto = "INNOVATIONS CAFE INTERNET";
 				$cont++;
 				$P_To[$cont] = $Email;
 
 				//$P_To[3] = APP_CORREOFROM;
-				$P_attachment = '../../tmp/Cotizacion_INNOVATIONS_CAFE_INTERNET_'.$mensaje[0].'_'.$desde.'.pdf';
+				$P_attachment = '../../tmp/Cotizacion_Innovations_Print_'.$mensaje[0].'_'.$desde.'.pdf';
+
+				
 				$Enviado = $objCorreo->enviarMensaje($P_To, $P_Asunto, $P_attachment);
+					
 				
-				//echo $Enviado;
-				
+
 				if ($Enviado == 1)
 				echo utf8_encode("El Correo se ha enviado Exitósamente");
 				else

@@ -7384,7 +7384,8 @@ function Enviar_Cotizacion(id_cotizacion)
 	
 	}, function(data){
 			
-			window.location.href='admin.php?sec='+btoa('listar_cotizaciones');
+			console.log(data);
+			// window.location.href='admin.php?sec='+btoa('listar_cotizaciones');
 	});
 }
 

@@ -1,5 +1,34 @@
 <?php
-include('../config/configuracion.php');
+
+	// Servidor Master
+	define("DB_MODO", 					"SIMPLE"); // Valores posibles: 	SIMPLE , REPLICACION	
+	
+	define("DB_HOST", 					"localhost");	
+	define("DB_USER", 					"root"); //innovbb6_admin
+	define("DB_CLAVE", 					""); //HSPf[I{lQD=2
+
+	//Servidor de Prueba de Desarrollo
+	
+	define("DB_NOMBRE", 				"innovbb6_imprenta");	
+	define("DB_TIPO", 					"mysql");
+	
+	//Web
+	define("TIME_SESSION", 				72800);
+	
+	//Otros
+	define("APP_NOMBRE", 				"INNOVATIONS PRINT");
+	define("APP_CORREOFROM", 			"hectorluisgonzalezlarreal@gmail.com");	
+	define("APP_CORREO_HOST", 			"smtp.gmail.com");
+	define("APP_CORREO_HOST_SSL", 		        "smtp.gmail.com");
+	define("APP_CORREO_USER", 			"hectorluisgonzalezlarreal@gmail.com");	
+	define("APP_CORREO_PASS", 			"*Hl7369372");
+	define("APP_CORREO_CC", 			        "hectorluisgonzalezlarreal@gmail.com");
+
+	define("APP_KEY", 				"iv1nvj7dqnbevxt");
+	define("APP_SECRET", 				"cejb4idtsogigbn");	
+
+
+
 include('php_mailer/class.phpmailer.php');
 
 // Librería
@@ -46,21 +75,22 @@ class correo{
 
 		
 		$mail->IsSMTP();
+		// $mail->SMTPDebug = 2;
 		$mail->SMTPAuth   = true;
-		$mail->Port       = 465;
-		$mail->SMTPSecure = "ssl";				
-		$mail->Host       = APP_CORREO_HOST_SSL;		
-		$mail->Username   = APP_CORREO_USER;
-		$mail->Password   = APP_CORREO_PASS;
+		$mail->Port       = 587;
+		$mail->SMTPSecure = "tls";				
+		$mail->Host       = "smtp.gmail.com";		
+		$mail->Username   = "hectorluisgonzalezlarreal@gmail.com";
+		$mail->Password   = "*Hl7369372";
 		$mail->SMTPKeepAlive   = true;
 		
 		// Introducimos la información del remitente del mensaje		
-		$mail->SetFrom(APP_CORREOFROM);
-		$mail->FromName = APP_NOMBRE;
-		$mail->AddReplyTo( APP_CORREOFROM, APP_NOMBRE);
-		$mail->Sender = APP_CORREOFROM;
-		$mail->AddCC(APP_CORREO_CC);
-		//$mail->AddCC(APP_CORREO_CC);
+		$mail->SetFrom("hectorluisgonzalezlarreal@gmail.com");
+		$mail->FromName = "INNOVATIONS PRINT";
+		$mail->AddReplyTo( "hectorluisgonzalezlarreal@gmail.com", "INNOVATIONS PRINT");
+		$mail->Sender = "hectorluisgonzalezlarreal@gmail.com";
+		$mail->AddCC("hectorluisgonzalezlarreal@gmail.com");
+		
 		
 		// y los destinatarios del mensaje. Podemos especificar más de un destinatario
 		if (!is_array($P_To))
@@ -81,14 +111,14 @@ class correo{
 		// Añadimos el mensaje: asunto, cuerpo del mensaje en HTML y en formato
 		// solo texto
 		$mail->Subject  =  $P_Asunto;
-		$mail->AddEmbeddedImage('images/logo_mail_firma.jpg','logo1','images/logo_mail_firma.jpg','base64','image/jpeg');		
+		
 		$mail->Body     =  $this->Html;
 		$mail->AltBody  =  $this->Txt; // Para los queno pueden recibir en formato HTML
 		
 		// Añadimos los adjuntos al mensaje
 		if ($P_attachment != ""){
 			if (!is_array($P_attachment))
-			$arrAtch[]=$P_attachment;
+			$arrAtch[]=$P_attachment;  
 			else
 			$arrAtch = $P_attachment;
 			
@@ -96,22 +126,19 @@ class correo{
 				$mail->AddAttachment($Atch); 
 			}		
 		}
-		//echo "<pre>"; print_r($mail); echo "<pre>";
-		if($mail->Send())
-		$exito = true;
-		/*else
-		{
-		//$exito = APP_CORREOFROM;
-		$exito = "Mailer Error: " . $mail->ErrorInfo;
-		}*/
 		
+		if($mail->Send()){
+			$exito = true;
+		}else{
+		echo"Mailer Error: " . $mail->ErrorInfo;
+		}
+			
 		return ($exito);		
 	}
 	
 	
 	function prepararNotificacion($mensaje, $tipo){
 		
-		//echo 'prueba';
 		$html = '
 		<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
 		<html xmlns=\"http://www.w3.org/1999/xhtml\">
@@ -128,12 +155,11 @@ class correo{
 			$html .= 
 			'<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td>INNOVATIONS CAFE INTERNET&nbsp;</td>
+					<td>INNOVATIONS PRINT&nbsp;</td>
 					<td>&nbsp;</td>				
 				</tr>
 				<tr>
-					<td><img src="cid:logo1" width="100%" alt="INNOVATIONS PRINT" />&nbsp;</td>
-					<td>&nbsp;</td>				
+								
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -218,7 +244,7 @@ class correo{
 			$html .=
 			'<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr>
-				<td width="50%" valign="bottom" style="font-size:12px" align="center"><strong>INNOVATIONS CAFE INTERNET</strong></td>
+				<td width="50%" valign="bottom" style="font-size:12px" align="center"><strong>INNOVATIONS PRINT</strong></td>
 				<td width="50%" valign="bottom" style="font-size:24px" align="center"><strong>PRESUPUESTO</strong></td>
 				</tr>
 				<tr>
@@ -287,7 +313,7 @@ class correo{
 			$html .= 
 			'<table width="100%" border="0" cellpadding="0" cellspacing="0">
 				<tr>
-				<td width="15%" valign="bottom" style="font-size:25px" colspan="7" align="center"><strong>INNOVATIONS CAFE INTERNET</strong></td>
+				<td width="15%" valign="bottom" style="font-size:25px" colspan="7" align="center"><strong>INNOVATIONS PRINT</strong></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

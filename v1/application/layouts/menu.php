@@ -283,8 +283,7 @@
 							{  ?>							
 							<li  id="lista_usuario"><a onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='default'" onclick="location.href = 'admin.php?sec=<?php echo base64_encode("listar_usuarios")?>';" title="Lista de Usuarios">Lista de Usuarios</a></li>	
 							<?php } ?>                            
-							<li><a onmouseover="this.style.cursor='pointer'" onmouseout="this.style.cursor='default'" onclick="location.href = 'admin.php?sec=<?php echo base64_encode("listar_ordenes_trabajos")?>';" title="Tareas" title="">Tareas</a></li>
-                        </ul>
+						</ul>
                     </li>
                 </ul>
                 <div class="clear"></div>

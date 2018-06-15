@@ -173,7 +173,32 @@ function Listar_Clientes()
 			"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 			"pageLength": 10,
 			//"paging": true,
-			"dom": 'T<"clear">lfrtip',
+			"dom": 'Bfrtip',
+			"buttons": [
+             {
+                extend: 'excelHtml5',
+                title:'LISTA DE CLIENTES (PERSONAS)',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+            	extend: 'pdfHtml5',
+                messageTop: 'LISTA DE CLIENTES (PERSONAS)',
+                title:'LISTA DE CLIENTES (PERSONAS)',
+                 exportOptions: {
+                    columns: ':visible'
+                }
+            },
+             {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                 title:'LISTA DE CLIENTES (PERSONAS)'
+            },
+            'colvis',  'pageLength'
+        ],
 			"createdRow":function( nRow, aData, iDataIndex ) {
 					$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 					$(nRow).attr('class', "gradeA");
@@ -195,7 +220,6 @@ function Listar_Clientes()
 				{ "data": 8 },
 				{ "data": 9 },		
 			],
-			"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
 			"destroy": true,
 			"language": {
 				"paginate": {
@@ -239,7 +263,32 @@ function Listar_Clientes()
 			"lengthMenu": [[5,10,15,25,50,75,100,150,-1],[5,10,15,25,50,75,100,150,"All"]],
 			"pageLength": 10,
 			//"paging": true,
-			"dom": 'T<"clear">lfrtip',
+			"dom": 'Bfrtip',
+			"buttons": [
+             {
+                extend: 'excelHtml5',
+                title:'LISTA DE CLIENTES (EMPRESA)',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+            	extend: 'pdfHtml5',
+                messageTop: 'LISTA DE CLIENTES (EMPRESA)',
+                title:'LISTA DE CLIENTES (EMPRESA)',
+                 exportOptions: {
+                    columns: ':visible'
+                }
+            },
+             {
+                extend: 'print',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                 title:'LISTA DE CLIENTES (EMPRESA)'
+            },
+            'colvis',  'pageLength'
+        ],
 			"createdRow":function( nRow, aData, iDataIndex ) {
 					$(nRow).attr('id', "rowDetalle_"+iDataIndex);
 					$(nRow).attr('class', "gradeA");
@@ -267,7 +316,7 @@ function Listar_Clientes()
 				
 				
 			],
-			"tableTools": {"sSwfPath": "tmp/copy_csv_xls_pdf.swf"},
+			
 			"destroy": true,
 			"language": {
 				"paginate": {

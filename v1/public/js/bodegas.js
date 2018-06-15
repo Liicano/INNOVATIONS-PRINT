@@ -164,6 +164,8 @@ function Eliminar_Bodega(oId)
 	$('.btn.btn-success').attr("disabled",true);	
 	var Id = $("#hdnIdCampos_" + oId).val();
 	
+	console.log("Id - ",Id);
+	
 	$.post("application/controllers/BodegaController.php?action=Eliminar_Bodega",
 	{
 		IdBodega:Id	

@@ -409,7 +409,8 @@
 		
 		try
 		{		
-			$Id_Grupo = strip_tags(utf8_decode($_POST['IdGrupo']));				
+
+			$Id_Bodega = strip_tags(utf8_decode($_POST['IdBodega']));				
 			$Id_Usuario = base64_decode($_SESSION['id_usuario']);
 			$Evento = "Bodega Eliminada";
 			$Tipo = "11";			
